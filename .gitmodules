@@ -1,0 +1,22 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "profiles/common/config/.vim/bundle/vim-colors-solarized"]
+	path = profiles/common/config/.vim/bundle/vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule "profiles/common/config/.vim/bundle/vim-ruby"]
+	path = profiles/common/config/.vim/bundle/vim-ruby
+	url = git@github.com:jlcrochet/vim-ruby.git
+[submodule "profiles/common/config/.vim/bundle/vim-terraform"]
+	path = profiles/common/config/.vim/bundle/vim-terraform
+	url = git@github.com:hashivim/vim-terraform.git
+[submodule "profiles/common/config/.vim/bundle/nerdtree"]
+	path = profiles/common/config/.vim/bundle/nerdtree
+	url = git@github.com:preservim/nerdtree.git
+[submodule "profiles/common/config/.vim/bundle/fzf"]
+	path = profiles/common/config/.vim/bundle/fzf
+	url = git@github.com:junegunn/fzf.vim.git
+[submodule "profiles/common/config/.vim/bundle/vim-fugitive"]
+	path = profiles/common/config/.vim/bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git

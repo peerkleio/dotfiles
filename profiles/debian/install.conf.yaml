@@ -1,0 +1,9 @@
+- defaults:
+    link:
+      force: true
+- link:
+    ~/.oh-my-zsh/custom/debian.zsh:
+      path: profiles/debian/oh-my-zsh/custom/debian.zsh
+- shell:
+  - sudo apt update
+  - sudo xargs apt install -yq < profiles/debian/packages

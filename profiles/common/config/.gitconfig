@@ -1,0 +1,88 @@
+[user]
+  name = Peer Allan
+  email = peer.allan@clio.com
+  signingkey = 9B4A87FB762F8E56
+[alias]
+  co = checkout
+  com = "!f() { git checkout $(git_main_branch); };f"
+  cob = checkout -b
+  st = status
+  ci = commit -va
+  cv = checkoutommit -v
+  br = branch
+  brd = branch -d
+  brm = checkout master -b
+  brn = checkout main -b
+  mt = mergetool
+  mrgm = merge master
+  ls = branch -a
+  wtf = whatchanged -p
+  undo = reset --soft HEAD^
+  plog = log --pretty=tformat:"%h %Cblue%cr%Creset %cn %Cgreen%s%Creset"
+  unstage = reset HEAD
+  chp = cherry-pick
+  lgm = log --no-merges --oneline --decorate
+  pr = pull --rebase
+  pf = push -f
+  brc = branch --contains
+  rpo = remote prune origin
+  gv = grep -C 2 --break --untracked --heading --color -n
+  ap = add -p
+  dc = diff --cached
+  rc = -c core.editor=true rebase --continue
+  rab = rebase --abort
+  rsk = rebase --skip
+  rms = rebase master
+  stash-all = stash save --include-untracked
+  cleanup = "!f(){ git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D; };f"
+        deletedone = "!f() { git fetch -p && git branch -vv | \\\n  perl -wne 'print \"$1\\n\" if m/^\\s*(\\S+)\\s+[0-9a-f]+\\s+\\[\\S+: gone\\]/;' | \\\n  xargs git branch -D; }; f"
+[status]
+  showUntrackedFiles = all
+[transfer]
+  fsckobjects = true
+[apply]
+  whitespace = nowarn
+[color]
+  status = auto
+  branch = auto
+  diff = auto
+[push]
+  default = current
+[core]
+  trustctime = false
+  excludesfile = /Users/peerallan/.gitignore_global
+[pull]
+  rebase = true
+        prune = true
+[grep]
+  lineNumber = true
+        extendRegexp = true
+[credential]
+  helper = osxkeychain
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[merge]
+  ff = only
+[github]
+  user = pallan
+[filter "lfs"]
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
+  required = true
+[commit]
+  # gpgsign = true
+[fetch]
+  fsckobjects = false
+        prune = true
+[pager]
+  grep = false
+  branch = false
+[diff]
+  algorithm = patience
+[protocol]
+  version = 2
+[init]
+        defaultBranch = main
+[advice]
+        skippedCherryPicks = false

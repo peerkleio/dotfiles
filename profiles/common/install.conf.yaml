@@ -1,0 +1,10 @@
+- defaults:
+    link:
+      force: true
+- clean: ['~']
+- link:
+    ~/.oh-my-zsh/custom/custom.zsh:
+      path: profiles/common/config/oh-my-zsh/custom/custom.zsh
+    ~/:
+      glob: true
+      path: profiles/common/config/.*
