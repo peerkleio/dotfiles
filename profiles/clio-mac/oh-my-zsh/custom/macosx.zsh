@@ -23,9 +23,12 @@ export GIT_EDITOR=$EDITOR
 # Compilation flags
 export ARCHFLAGS="-arch arm64"
 
-
 source "${HOME}/.zsh_secrets"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+
+eval "$(rbenv init - zsh)"
+
+eval "$(dev _hook)"

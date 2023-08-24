@@ -116,7 +116,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-eval "$(rbenv init - zsh)"
-
-eval "$(dev _hook)"
