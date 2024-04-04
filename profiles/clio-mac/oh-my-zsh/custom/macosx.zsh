@@ -28,8 +28,10 @@ source "${HOME}/.zsh_secrets"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
 
-eval "$(rbenv init - zsh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(rbenv init --no-rehash -)"
+eval "$(nodenv init --no-rehash -)"
+eval "$(pyenv init --no-rehash -)"
 
-eval "$(dev _hook)"
+# eval "$(dev _hook)"
