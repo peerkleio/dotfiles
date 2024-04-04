@@ -22,6 +22,7 @@ export GIT_EDITOR=$EDITOR
 
 # Compilation flags
 export ARCHFLAGS="-arch arm64"
+export RUBY_CONFIGURE_OPTS="--enable-yjit"
 
 source "${HOME}/.zsh_secrets"
 
