@@ -54,3 +54,15 @@ fpath=(/Users/peerallan/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# ---
+# macOS-specific environment setup
+# Source Clio and Rust environment if present
+# These were previously in .bash_profile/.profile and are needed for dev tools
+if [ -f "$HOME/.clio_profile" ]; then
+  source "$HOME/.clio_profile"
+fi
+
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
