@@ -1,5 +1,4 @@
-export PATH=/opt/homebrew/bin:/Users/peerallan/bin:/usr/local/bin:/usr/local/sbin:$PATH
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+export PATH="/opt/homebrew/bin:/Users/peerallan/bin:/usr/local/bin:/usr/local/sbin:/opt/homebrew/opt/mysql-client/bin:/opt/homebrew/opt/llvm@14/bin:$PATH"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -24,14 +23,34 @@ export GIT_EDITOR=$EDITOR
 export ARCHFLAGS="-arch arm64"
 export RUBY_CONFIGURE_OPTS="--enable-yjit"
 
-source "${HOME}/.zsh_secrets"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm@14/include"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(rbenv init --no-rehash -)"
-eval "$(nodenv init --no-rehash -)"
-eval "$(pyenv init --no-rehash -)"
+# Homebrew
+if command -v brew >/dev/null 2>&1; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+# rbenv
+if command -v rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init --no-rehash -)"
+fi
+# nodenv
+if command -v nodenv >/dev/null 2>&1; then
+  eval "$(nodenv init --no-rehash -)"
+fi
+# pyenv
+if command -v pyenv >/dev/null 2>&1; then
+  eval "$(pyenv init --no-rehash -)"
+fi
 
-# eval "$(dev _hook)"
+if command -v dev >/dev/null 2>&1; then
+  eval "$(dev _hook)"
+fi
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/peerallan/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

@@ -2,6 +2,27 @@
 
 set -e
 
+# Check for required tools
+for cmd in git bash; do
+  if ! command -v "$cmd" >/dev/null 2>&1; then
+    echo "Error: Required tool '$cmd' is not installed. Please install it and try again."
+    exit 1
+  fi
+done
+
+# Check for Dotbot
+if [ ! -x "dotbot/bin/dotbot" ]; then
+  echo "Error: Dotbot is not initialized. Run 'git submodule update --init --recursive' first."
+  exit 1
+fi
+
+# Usage/help message
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+  echo "Usage: ./install [dotbot options]"
+  echo "This script auto-detects your profile and runs Dotbot with the appropriate config."
+  exit 0
+fi
+
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 
@@ -24,7 +45,7 @@ for PROFILE_DIR in profiles/*; do
 
   if "${DETECT_CMD}"; then
     printf "\033[0;32m==> 🟢 Profile ${PROFILE} detected: running dotbot\033[0m\n"
-     "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${PROFILE_DIR}/install.conf.yaml" "${@}"
+     "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${PROFILE_DIR}/install.conf.yaml" "$@"
     printf "\033[0;32m==> ✅ Profile ${PROFILE} configured.\n"
 
   else

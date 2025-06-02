@@ -5,4 +5,5 @@ export LC_ALL=en_US.UTF-8
 # History Settings
 setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
-export HISTORY_IGNORE="(htpasswd *|cd *|ls *|git *|export AWS_*)"
+setopt EXTENDED_HISTORY
+export HIST_IGNORE_PATTERN="(htpasswd *|cd *|ls *|git *|export AWS_*)"

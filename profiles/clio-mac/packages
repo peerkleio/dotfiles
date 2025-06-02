@@ -1,3 +1,5 @@
+# Consider using a Brewfile for Homebrew package management for better automation and reproducibility.
+# See: https://github.com/Homebrew/homebrew-bundle
 htop
 gh
 jq
