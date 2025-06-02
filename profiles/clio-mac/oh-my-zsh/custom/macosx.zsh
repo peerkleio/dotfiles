@@ -29,8 +29,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Homebrew
-if command -v brew >/dev/null 2>&1; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ $- == *i* ]]; then
+  if command -v brew >/dev/null 2>&1; then
+    eval "$('/opt/homebrew/bin/brew' shellenv)"
+  fi
 fi
 # rbenv
 if command -v rbenv >/dev/null 2>&1; then
@@ -45,14 +47,14 @@ if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init --no-rehash -)"
 fi
 
-if command -v dev >/dev/null 2>&1; then
-  eval "$(dev _hook)"
-fi
+# if command -v dev >/dev/null 2>&1; then
+#   eval "$(dev _hook)"
+# fi
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/peerallan/.docker/completions $fpath)
 autoload -Uz compinit
-compinit
+compinit -C
 # End of Docker CLI completions
 
 # ---
