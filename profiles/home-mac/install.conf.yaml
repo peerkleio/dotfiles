@@ -1,0 +1,12 @@
+- defaults:
+    link:
+      force: true
+- create:
+  - ~/src/github.com
+  - ~/src/misc
+- link:
+    ~/.oh-my-zsh/custom/macosx.zsh:
+      path: profiles/home-mac/oh-my-zsh/custom/macosx.zsh
+    ~/:
+      glob: true
+      path: profiles/home-mac/config/.*

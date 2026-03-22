@@ -1,4 +1,4 @@
-export PATH="/opt/homebrew/bin:/Users/peerallan/bin:/usr/local/bin:/usr/local/sbin:/opt/homebrew/opt/mysql-client/bin:/opt/homebrew/opt/llvm@14/bin:$PATH"
+export PATH="/opt/homebrew/bin:/Users/pallan/bin:/usr/local/bin:/usr/local/sbin:/opt/homebrew/opt/mysql-client/bin:/opt/homebrew/opt/llvm@14/bin:$PATH"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -25,45 +25,16 @@ export RUBY_CONFIGURE_OPTS="--enable-yjit"
 
 export CPPFLAGS="-I/opt/homebrew/opt/llvm@14/include"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
 export GOPATH="$HOME/src/go"
 export PATH="$PATH:${GOPATH}/bin"
+
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 # Homebrew
 if [[ $- == *i* ]]; then
   if command -v brew >/dev/null 2>&1; then
     eval "$('/opt/homebrew/bin/brew' shellenv)"
   fi
-fi
-# rbenv
-if command -v rbenv >/dev/null 2>&1; then
-  eval "$(rbenv init --no-rehash -)"
-fi
-# nodenv
-if command -v nodenv >/dev/null 2>&1; then
-  eval "$(nodenv init --no-rehash -)"
-fi
-# pyenv
-if command -v pyenv >/dev/null 2>&1; then
-  eval "$(pyenv init --no-rehash -)"
-fi
-
-# if command -v dev >/dev/null 2>&1; then
-#   eval "$(dev _hook)"
-# fi
-
-# ---
-# macOS-specific environment setup
-# Source Clio and Rust environment if present
-# These were previously in .bash_profile/.profile and are needed for dev tools
-if [ -f "$HOME/.clio_profile" ]; then
-  source "$HOME/.clio_profile"
-fi
-
-if [ -f "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
 fi
 
 if [[ -n $CURSOR_TRACE_ID ]]; then
