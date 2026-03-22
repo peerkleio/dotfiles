@@ -1,7 +1,5 @@
-[user]
-  name = Peer Allan
-  email = peer.allan@clio.com
-  signingkey = 9B4A87FB762F8E56
+[include]
+  path = ~/.gitconfig-user
 [alias]
   co = checkout
   com = "!f() { git checkout $(git_main_branch); };f"

@@ -2,9 +2,13 @@
     link:
       force: true
 - clean: ['~']
+- create:
+  - ~/.config/zsh
 - link:
     ~/.oh-my-zsh/custom/custom.zsh:
       path: profiles/common/config/oh-my-zsh/custom/custom.zsh
+    ~/.config/zsh/macos-base.zsh:
+      path: profiles/common/config/zsh/macos-base.zsh
     ~/:
       glob: true
       path: profiles/common/config/.*

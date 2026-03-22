@@ -4,8 +4,11 @@
 - create:
   - ~/src/github.com
   - ~/src/misc
+  - ~/.config/zsh
 - link:
     ~/.oh-my-zsh/custom/macosx.zsh:
       path: profiles/clio-mac/oh-my-zsh/custom/macosx.zsh
+    ~/.gitconfig-user:
+      path: profiles/common/config/gitconfig-user-work
 # - shell:
 #   -

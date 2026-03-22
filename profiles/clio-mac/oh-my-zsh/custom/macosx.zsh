@@ -2,73 +2,25 @@ export PATH="/opt/homebrew/bin:/Users/peerallan/bin:/usr/local/bin:/usr/local/sb
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR="code -w"
-fi
-export GIT_EDITOR=$EDITOR
-
-# Compilation flags
-export ARCHFLAGS="-arch arm64"
-export RUBY_CONFIGURE_OPTS="--enable-yjit"
-
-export CPPFLAGS="-I/opt/homebrew/opt/llvm@14/include"
+source "${HOME}/.config/zsh/macos-base.zsh"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-export GOPATH="$HOME/src/go"
-export PATH="$PATH:${GOPATH}/bin"
-
-# Homebrew
-if [[ $- == *i* ]]; then
-  if command -v brew >/dev/null 2>&1; then
-    eval "$('/opt/homebrew/bin/brew' shellenv)"
-  fi
-fi
-# rbenv
+# Lazy-load version managers — defers eval cost until first use
 if command -v rbenv >/dev/null 2>&1; then
-  eval "$(rbenv init --no-rehash -)"
+  rbenv() { unfunction rbenv; eval "$(command rbenv init --no-rehash -)"; rbenv "$@" }
 fi
-# nodenv
 if command -v nodenv >/dev/null 2>&1; then
-  eval "$(nodenv init --no-rehash -)"
+  nodenv() { unfunction nodenv; eval "$(command nodenv init --no-rehash -)"; nodenv "$@" }
 fi
-# pyenv
 if command -v pyenv >/dev/null 2>&1; then
-  eval "$(pyenv init --no-rehash -)"
+  pyenv() { unfunction pyenv; eval "$(command pyenv init --no-rehash -)"; pyenv "$@" }
 fi
 
-# if command -v dev >/dev/null 2>&1; then
-#   eval "$(dev _hook)"
-# fi
-
-# ---
-# macOS-specific environment setup
-# Source Clio and Rust environment if present
-# These were previously in .bash_profile/.profile and are needed for dev tools
-if [ -f "$HOME/.clio_profile" ]; then
-  source "$HOME/.clio_profile"
+if command -v dev >/dev/null 2>&1; then
+  eval "$(dev _hook)"
 fi
 
-if [ -f "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
-fi
-
-if [[ -n $CURSOR_TRACE_ID ]]; then
-  PROMPT_EOL_MARK=""
-  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-  precmd() { print -Pn "\e]133;D;%?\a" }
-  preexec() { print -Pn "\e]133;C;\a" }
-fi
+[[ -f "$HOME/.clio_profile" ]] && source "$HOME/.clio_profile"
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"

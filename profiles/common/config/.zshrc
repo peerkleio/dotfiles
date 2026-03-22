@@ -82,12 +82,14 @@ plugins=(
   gpg-agent
   macos
   rails
-  rbenv
   vscode
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-history-substring-search
 )
+
+# Docker completions — must be before OMZ source so compinit picks them up
+[[ -d "$HOME/.docker/completions" ]] && fpath=($HOME/.docker/completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -117,9 +119,3 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval "$(dev _hook)"
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/peerallan/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions

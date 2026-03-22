@@ -4,9 +4,11 @@
 - create:
   - ~/src/github.com
   - ~/src/misc
+  - ~/.config/zsh
 - link:
     ~/.oh-my-zsh/custom/macosx.zsh:
       path: profiles/home-mac/oh-my-zsh/custom/macosx.zsh
-    ~/:
-      glob: true
-      path: profiles/home-mac/config/.*
+    ~/.oh-my-zsh/custom/home.zsh:
+      path: profiles/home-mac/oh-my-zsh/custom/home.zsh
+    ~/.gitconfig-user:
+      path: profiles/home-mac/config/gitconfig-user-personal
