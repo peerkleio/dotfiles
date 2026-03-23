@@ -84,5 +84,13 @@
         defaultBranch = main
 [advice]
         skippedCherryPicks = false
+[rerere]
+	enabled = true
+[safe]
+	directory = /workspaces/mb-open
 [credential "https://github.com"]
-	useHttpPath = true
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
