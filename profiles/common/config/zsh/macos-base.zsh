@@ -14,6 +14,9 @@ export ARCHFLAGS="-arch arm64"
 export RUBY_CONFIGURE_OPTS="--enable-yjit"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm@14/include"
 
+# Local binaries (e.g. Claude Code)
+export PATH="$HOME/.local/bin:$PATH"
+
 # Go
 export GOPATH="$HOME/src/go"
 export PATH="$PATH:${GOPATH}/bin"
