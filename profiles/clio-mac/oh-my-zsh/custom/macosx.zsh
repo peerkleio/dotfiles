@@ -1,4 +1,4 @@
-export PATH="/opt/homebrew/bin:/Users/peerallan/bin:/usr/local/bin:/usr/local/sbin:/opt/homebrew/opt/mysql-client/bin:/opt/homebrew/opt/llvm@14/bin:$PATH"
+export PATH="$HOME/.devcontainers/bin:/opt/homebrew/bin:/Users/peerallan/bin:/usr/local/bin:/usr/local/sbin:/opt/homebrew/opt/mysql-client/bin:/opt/homebrew/opt/llvm@14/bin:$PATH"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -21,6 +21,8 @@ fi
 if command -v dev >/dev/null 2>&1; then
   eval "$(dev _hook)"
 fi
+
+[[ -d "/opt/clio/bin/devxp" ]] && export PATH="/opt/clio/bin/devxp:$PATH"
 
 [[ -f "$HOME/.clio_profile" ]] && source "$HOME/.clio_profile"
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
