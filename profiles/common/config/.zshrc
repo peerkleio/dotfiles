@@ -126,3 +126,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+test -e /Users/peerallan/.iterm2_shell_integration.zsh && source /Users/peerallan/.iterm2_shell_integration.zsh || true
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/peerallan/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
