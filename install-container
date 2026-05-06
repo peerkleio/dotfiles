@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e
+
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+ln -sf "${BASEDIR}/profiles/common/config/gitconfig-user-work" "${HOME}/.gitconfig-user"
