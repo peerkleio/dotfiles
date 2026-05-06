@@ -12,8 +12,7 @@ done
 
 # Check for Dotbot
 if [ ! -x "dotbot/bin/dotbot" ]; then
-  echo "Error: Dotbot is not initialized. Run 'git submodule update --init --recursive' first."
-  exit 1
+  git submodule update --init --recursive
 fi
 
 # Usage/help message
