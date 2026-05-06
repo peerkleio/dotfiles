@@ -126,9 +126,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
 test -e /Users/peerallan/.iterm2_shell_integration.zsh && source /Users/peerallan/.iterm2_shell_integration.zsh || true
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/peerallan/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+[[ -d "/opt/clio/bin/devxp" ]] && export PATH="/opt/clio/bin/devxp:$PATH"

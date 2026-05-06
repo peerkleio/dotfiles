@@ -9,6 +9,8 @@
       path: profiles/common/config/oh-my-zsh/custom/custom.zsh
     ~/.config/zsh/macos-base.zsh:
       path: profiles/common/config/zsh/macos-base.zsh
+    ~/.gitconfig-user:
+      path: profiles/common/config/gitconfig-user-work
     ~/:
       glob: true
       path: profiles/common/config/.*
